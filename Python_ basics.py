@@ -20,11 +20,35 @@ print(f"20 days are {20 * 24 * 60} minutes")
 # separate multiple words with underline between them
 # Variables are case-sensitive
 
-dys = int(input("Enter a number of days: "))
-minutes = 24 * 60
-seconds = minutes * 60
-calcualtion_to_minutes = dys * minutes
-calculation_to_seconds = dys * seconds
+num_of_days = int(input("Enter a number of days: "))
+unit = input("Enter the unit, eg. minutes, seconds, hours: ")
 
-print(f"{dys} days are {calcualtion_to_minutes} minutes")
-print(f"{dys} days are {calculation_to_seconds} seconds")
+
+hours = num_of_days * 24
+minutes = hours * 60
+seconds = minutes * 60
+calcualtion_to_minutes = hours * 60
+calculation_to_seconds = minutes * 60
+
+# print("++++++++++++++++++++++++")
+print(f"{num_of_days} days are {calcualtion_to_minutes} {unit}")
+print(f"{num_of_days} days are {calculation_to_seconds} {unit}")
+
+
+# functions are blocks of code that are reusable
+# functions are defined with the def keyword
+# functions can take arguments
+# functions can return values
+# functions are called with parentheses
+# functions can have default arguments
+# functions can have keyword arguments
+
+
+if unit == "hours":
+    print(f"{num_of_days} days are {hours} {unit}")
+elif unit == "minutes":
+    print(f"{num_of_days} days are {minutes} {unit}")
+elif unit == "seconds":
+    print(f"{num_of_days} days are {seconds} {unit}")
+else:
+    print("unit not recognized")
