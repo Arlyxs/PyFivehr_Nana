@@ -45,19 +45,20 @@ print("++++++++++++++++++++++++")
 # functions can have keyword arguments
 
 
-def days_to_units(num_of_days, unit):
+def days_to_units(num_of_days, unit, custom_message):
+
     if unit == "hours":
-        return f"{num_of_days} days are {hours} {unit}"
+        return f"{num_of_days} days are {hours} {unit} {custom_message}"
     elif unit == "minutes":
-        return f"{num_of_days} days are {minutes} {unit}"
+        return f"{num_of_days} days are {minutes} {unit}  {custom_message}"
     elif unit == "seconds":
-        return f"{num_of_days} days are {seconds} {unit}"
+        return f"{num_of_days} days are {seconds} {unit} {custom_message}"
     else:
         return "unit not recognized"
 
 
-dys_units = days_to_units(num_of_days, unit)
+dys_units = days_to_units(num_of_days, unit, "Awesome")
 print(dys_units)
-print(days_to_units(num_of_days, unit))
+print(days_to_units(num_of_days, unit, "Great Stuff!"))
 
 print("++++++++++++++++++++++++")
