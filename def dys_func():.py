@@ -46,7 +46,7 @@ def dys_func():
                     print(f"You exceeded max num tries {n}, please try again later")
                     break
         except ValueError:
-            print("Unit format is incorrect, please enter a valid number")
+            print("Unit format is incorrect, please enter a valid unit format")
             n += 1
             if n == 4:
                 print(f"You exceeded max num tries {i}, please try again later")
