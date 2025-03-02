@@ -44,11 +44,17 @@ print(f"{num_of_days} days are {calculation_to_seconds} {unit}")
 # functions can have keyword arguments
 
 
-if unit == "hours":
-    print(f"{num_of_days} days are {hours} {unit}")
-elif unit == "minutes":
-    print(f"{num_of_days} days are {minutes} {unit}")
-elif unit == "seconds":
-    print(f"{num_of_days} days are {seconds} {unit}")
-else:
-    print("unit not recognized")
+def days_to_units(num_of_days, unit):
+    if unit == "hours":
+        return f"{num_of_days} days are {hours} {unit}"
+    elif unit == "minutes":
+        return f"{num_of_days} days are {minutes} {unit}"
+    elif unit == "seconds":
+        return f"{num_of_days} days are {seconds} {unit}"
+    else:
+        return "unit not recognized"
+
+
+dys_units = days_to_units(num_of_days, unit)
+print(dys_units)
+print(days_to_units(num_of_days, unit))
