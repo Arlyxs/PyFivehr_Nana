@@ -16,7 +16,7 @@ while True:
             )
     except ValueError:
         print
-        # ("You entered an invalid input, please enter a valid number")
+        ("You entered an invalid input, please enter a valid number")
         continue
 while True:
     try:
@@ -36,7 +36,6 @@ calc_to_seconds = calc_to_minutes * 60
 
 
 def days_to_units(num_of_days, unit, custom_message):
-
     if unit == "hours":
         return f"{num_of_days} days are {calc_to_hours} {unit} {custom_message}"
     elif unit == "minutes":
