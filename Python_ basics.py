@@ -12,7 +12,9 @@
 # automation with libraries like pyautogui, pywinauto, and pyautogui.
 
 # concatenate strings and numbers in print with format (f)
-print("20 days are " + str(28800) + " minutes")
+print("20 days are " + str(28800) + " minutes \n")
+# \n will print to a new line before or after text where placed
+
 print(f"20 days are {28,800} minutes")
 print(f"20 days are {20 * 24 * 60} minutes")
 
@@ -57,7 +59,7 @@ def days_to_units(num_of_days, unit, custom_message):
         return "unit not recognized"
 
 
-dys_units = days_to_units(num_of_days, unit, "Awesome")
+dys_units = days_to_units(num_of_days, unit, "Awesome\n")
 print(dys_units)
 print(days_to_units(num_of_days, unit, "Great Stuff!"))
 
