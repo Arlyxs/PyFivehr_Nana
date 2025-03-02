@@ -30,10 +30,11 @@ seconds = minutes * 60
 calcualtion_to_minutes = hours * 60
 calculation_to_seconds = minutes * 60
 
-# print("++++++++++++++++++++++++")
+
 print(f"{num_of_days} days are {calcualtion_to_minutes} {unit}")
 print(f"{num_of_days} days are {calculation_to_seconds} {unit}")
 
+print("++++++++++++++++++++++++")
 
 # functions are blocks of code that are reusable
 # functions are defined with the def keyword
@@ -58,3 +59,5 @@ def days_to_units(num_of_days, unit):
 dys_units = days_to_units(num_of_days, unit)
 print(dys_units)
 print(days_to_units(num_of_days, unit))
+
+print("++++++++++++++++++++++++")
