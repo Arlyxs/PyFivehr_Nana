@@ -8,13 +8,15 @@ while True:
         if num_of_days > 0:
             num_of_days
             break
+        elif num_of_days == 0:  # check if the number of days is 0
+            print("You entered 0, please enter a positive number")
         else:
             print(
                 "You entered a negative number of days, please enter a positive number"
             )
     except ValueError:
         print
-        ("You entered an invalid input, please enter a valid number")
+        # ("You entered an invalid input, please enter a valid number")
         continue
 while True:
     try:
