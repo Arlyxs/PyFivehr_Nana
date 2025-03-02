@@ -15,6 +15,7 @@ while True:
     except ValueError:
         print
         ("You entered an invalid input, please enter a valid number")
+        continue
 while True:
     try:
         unit = input("Enter the unit, eg. minutes, seconds, hours: ")
