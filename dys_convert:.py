@@ -1,7 +1,7 @@
 import sys
 
 
-def dys_func(num_of_days, unit):
+def dys_convert(num_of_days, unit):
     i = 0
     while i < 4:
         try:
@@ -63,7 +63,7 @@ def dys_func(num_of_days, unit):
 
 num_of_days = 0
 unit = ""
-num_of_days, unit, calc_to_hours, calc_to_minutes, calc_to_seconds = dys_func(
+num_of_days, unit, calc_to_hours, calc_to_minutes, calc_to_seconds = dys_convert(
     num_of_days, unit
 )
 
