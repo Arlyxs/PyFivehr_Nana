@@ -33,9 +33,6 @@ def dys_func(num_of_days, unit):
                 print(f"You exceeded max num tries {i}, exiting program")
                 exit(0)
 
-            if __name__ == "__dys_func__":
-                dys_func()
-
     n = 0
     while n < 5:
         try:
