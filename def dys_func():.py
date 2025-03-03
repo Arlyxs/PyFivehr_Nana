@@ -1,3 +1,6 @@
+import sys
+
+
 def dys_func(num_of_days, unit):
     i = 0
     while i < 4:
@@ -10,16 +13,16 @@ def dys_func(num_of_days, unit):
                 print("You entered 0, please enter a positive number")
                 i += 1
                 if i == 3:
-                    print(f"You exceeded max num tries {i}, please try again later")
-                    break
+                    print(f"You exceeded max num tries {i}, exiting program")
+                    exit(0)
             elif num_of_days < 0:
                 print(
                     "You entered a negative number of days, please enter a positive number"
                 )
                 i += 1
                 if i == 3:
-                    print(f"You exceeded max num tries {i}, please try again later")
-                    break
+                    print(f"You exceeded max num tries {i}, exiting program")
+                    exit(0)
             else:
                 print(f"You failed to enter a viable num.  restart to try again later")
                 break
@@ -27,8 +30,11 @@ def dys_func(num_of_days, unit):
             print("You entered an invalid input, please enter a valid number")
             i += 1
             if i == 3:
-                print(f"You exceeded max num tries {i}, please try again later")
-                break
+                print(f"You exceeded max num tries {i}, exiting program")
+                exit(0)
+
+            if __name__ == "__dys_func__":
+                dys_func()
 
     n = 0
     while n < 5:
@@ -41,16 +47,15 @@ def dys_func(num_of_days, unit):
                 print("You entered an invalid unit, please enter a valid unit")
                 n += 1
                 if n == 4:
-                    print(f"You exceeded max num tries {n}, please try again later")
-                    break
+                    print(f"You exceeded max num tries {i}, exiting program")
+                    exit(0)
                 continue
         except ValueError:
             print("Unit format is incorrect, please enter a valid unit format")
             n += 1
             if n == 4:
-                print(f"You exceeded max num tries {n}, please try again later")
-                break
-
+                print(f"You exceeded max num tries {i}, exiting program")
+                exit(0)
     # Calculate the values after both inputs are collected
     calc_to_hours = num_of_days * 24
     calc_to_minutes = calc_to_hours * 60
