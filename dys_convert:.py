@@ -4,55 +4,53 @@ import sys
 def dys_convert(num_of_days, unit):
     i = 0
     while i < 4:
+        if i == 3:
+            print(f"You exceeded max num tries {i}, exiting program")
+            # exit(0) USE in final program only
+            break
         try:
             num_of_days = int(input("Enter a number of days: "))
             if num_of_days > 0:
-                # Don't return here, just break the loop
                 break
+
             elif num_of_days == 0:  # check if the number of days is 0
                 print("You entered 0, please enter a positive number")
                 i += 1
-                if i == 3:
-                    print(f"You exceeded max num tries {i}, exiting program")
-                    exit(0)
+
             elif num_of_days < 0:
                 print(
                     "You entered a negative number of days, please enter a positive number"
                 )
                 i += 1
-                if i == 3:
-                    print(f"You exceeded max num tries {i}, exiting program")
-                    exit(0)
+
             else:
-                print(f"You failed to enter a viable num.  restart to try again later")
-                break
+                print("You entered an invalid unit, please enter a valid unit")
+                i += 1
+
         except ValueError:
-            print("You entered an invalid input, please enter a valid number")
+            print("exception error: invalid input type. please enter a valid number")
             i += 1
-            if i == 3:
-                print(f"You exceeded max num tries {i}, exiting program")
-                exit(0)
 
     n = 0
     while n < 5:
+        if n == 4:
+            print(f"You exceeded max num tries {n}, exiting program")
+            exit(0)
+            # break USE for testing only goes on to calc
+            # with invalid input type. function = unit not recognized.
         try:
             unit = input("Enter the unit, eg. minutes, seconds, hours: ")
             if unit == "hours" or unit == "minutes" or unit == "seconds":
-                # Don't return here, just break the loop
                 break
             else:
                 print("You entered an invalid unit, please enter a valid unit")
                 n += 1
-                if n == 4:
-                    print(f"You exceeded max num tries {i}, exiting program")
-                    exit(0)
-                continue
         except ValueError:
-            print("Unit format is incorrect, please enter a valid unit format")
+            print(
+                "exception error: invalid input type. please enter a valid unit format"
+            )
             n += 1
-            if n == 4:
-                print(f"You exceeded max num tries {i}, exiting program")
-                exit(0)
+
     # Calculate the values after both inputs are collected
     calc_to_hours = num_of_days * 24
     calc_to_minutes = calc_to_hours * 60
@@ -66,9 +64,6 @@ unit = ""
 num_of_days, unit, calc_to_hours, calc_to_minutes, calc_to_seconds = dys_convert(
     num_of_days, unit
 )
-
-# Remove this line as it's overwriting the unit variable with the entire tuple
-# unit = dys_func(num_of_days, unit)
 
 
 def days_to_units(num_of_days, unit, custom_message):
