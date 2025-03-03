@@ -4,8 +4,7 @@ def dys_func(num_of_days, unit):
         try:
             num_of_days = int(input("Enter a number of days: "))
             if num_of_days > 0:
-                return num_of_days
-                i += 1
+                # Don't return here, just break the loop
                 break
             elif num_of_days == 0:  # check if the number of days is 0
                 print("You entered 0, please enter a positive number")
@@ -36,8 +35,7 @@ def dys_func(num_of_days, unit):
         try:
             unit = input("Enter the unit, eg. minutes, seconds, hours: ")
             if unit == "hours" or unit == "minutes" or unit == "seconds":
-                return unit
-                n += 1
+                # Don't return here, just break the loop
                 break
             else:
                 print("You entered an invalid unit, please enter a valid unit")
@@ -50,9 +48,10 @@ def dys_func(num_of_days, unit):
             print("Unit format is incorrect, please enter a valid unit format")
             n += 1
             if n == 4:
-                print(f"You exceeded max num tries {i}, please try again later")
+                print(f"You exceeded max num tries {n}, please try again later")
                 break
 
+    # Calculate the values after both inputs are collected
     calc_to_hours = num_of_days * 24
     calc_to_minutes = calc_to_hours * 60
     calc_to_seconds = calc_to_minutes * 60
@@ -61,10 +60,13 @@ def dys_func(num_of_days, unit):
 
 
 num_of_days = 0
+unit = ""
 num_of_days, unit, calc_to_hours, calc_to_minutes, calc_to_seconds = dys_func(
-    num_of_days, unit)
+    num_of_days, unit
 )
-unit = dys_func(num_of_days, unit)
+
+# Remove this line as it's overwriting the unit variable with the entire tuple
+# unit = dys_func(num_of_days, unit)
 
 
 def days_to_units(num_of_days, unit, custom_message):
