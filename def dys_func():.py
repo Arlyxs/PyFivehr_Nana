@@ -1,10 +1,10 @@
-def dys_func():
+def dys_func(num_of_days, unit):
     i = 0
     while i < 4:
         try:
             num_of_days = int(input("Enter a number of days: "))
             if num_of_days > 0:
-                num_of_days
+                return num_of_days
                 i += 1
                 break
             elif num_of_days == 0:  # check if the number of days is 0
@@ -22,7 +22,7 @@ def dys_func():
                     print(f"You exceeded max num tries {i}, please try again later")
                     break
             else:
-                print(f"You failed to enter a viable num.  restart ot try again later")
+                print(f"You failed to enter a viable num.  restart to try again later")
                 break
         except ValueError:
             print("You entered an invalid input, please enter a valid number")
@@ -30,13 +30,13 @@ def dys_func():
             if i == 3:
                 print(f"You exceeded max num tries {i}, please try again later")
                 break
-    
+
     n = 0
-    while n in range(5):
+    while n < 5:
         try:
             unit = input("Enter the unit, eg. minutes, seconds, hours: ")
             if unit == "hours" or unit == "minutes" or unit == "seconds":
-                unit
+                return unit
                 n += 1
                 break
             else:
@@ -45,6 +45,7 @@ def dys_func():
                 if n == 4:
                     print(f"You exceeded max num tries {n}, please try again later")
                     break
+                continue
         except ValueError:
             print("Unit format is incorrect, please enter a valid unit format")
             n += 1
@@ -52,13 +53,31 @@ def dys_func():
                 print(f"You exceeded max num tries {i}, please try again later")
                 break
 
-    if unit == "hours":
-            return f"{num_of_days} days are {calc_to_hours} {unit} {custom_message}"
-        elif unit == "minutes":
-            return f"{num_of_days} days are {calc_to_minutes} {unit}  {custom_message}"
-        elif unit == "seconds":
-            return f"{num_of_days} days are {calc_to_seconds} {unit} {custom_message}"
-        else:
-            return "unit not recognized"
+    calc_to_hours = num_of_days * 24
+    calc_to_minutes = calc_to_hours * 60
+    calc_to_seconds = calc_to_minutes * 60
 
-dys_func()
+    return num_of_days, unit, calc_to_hours, calc_to_minutes, calc_to_seconds
+
+
+num_of_days = 0
+num_of_days, unit, calc_to_hours, calc_to_minutes, calc_to_seconds = dys_func(
+    num_of_days, unit)
+)
+unit = dys_func(num_of_days, unit)
+
+
+def days_to_units(num_of_days, unit, custom_message):
+    if unit == "hours":
+        return f"{num_of_days} days are {calc_to_hours} {unit} {custom_message}"
+    elif unit == "minutes":
+        return f"{num_of_days} days are {calc_to_minutes} {unit}  {custom_message}"
+    elif unit == "seconds":
+        return f"{num_of_days} days are {calc_to_seconds} {unit} {custom_message}"
+    else:
+        return "unit not recognized"
+
+
+dys_units = days_to_units(num_of_days, unit, "Awesome\n")
+print(dys_units)
+print(days_to_units(num_of_days, unit, "Great Stuff!"))
