@@ -27,6 +27,10 @@ def days_to_units(num_of_days, unit, custom_message):
         return "unit not recognized"
 
 
+# need to put return here and not in body of function
+# need to return all variables for use in dys_units function
+
+
 dys_units = days_to_units(num_of_days, unit, "Awesome\n")
 print(dys_units)
 print(days_to_units(num_of_days, unit, "Great Stuff!"))
