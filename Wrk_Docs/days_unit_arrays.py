@@ -1,18 +1,18 @@
 from curses.ascii import isdigit
 
-# calculate days to hours static resource inputs
+# :- calculate days to hours static resource inputs
 calculation_to_units = 24
 name_of_unit = "hours"
 
 
-# calculate
+# :- calculate
 def days_to_units(num_of_days):
     return f"{num_of_days} days are {num_of_days* calculation_to_units} {name_of_unit}"
 
 
 def validate_and_execute():
     try:
-
+        # previous code: user_input_number = int(num_of_days)
         user_input_number = int(num_of_days_element)
         if user_input_number > 0:
             calculated_value = days_to_units(user_input_number)
@@ -20,13 +20,13 @@ def validate_and_execute():
         elif user_input_number == 0:
             print("You entered 0, please enter a valid positive number")
         else:
-            print("you netered a negarive number, no conversion for you")
+            print("you entered a negarive number, no conversion for you")
 
     except ValueError:
         print("your input is not a valid number,  Don't ruin my program")
 
 
-# list for entering multiple tries
+# :- list for entering multiple tries
 list = [10, 15, 40, 100]
 
 # user_input = ""
@@ -38,6 +38,7 @@ while user_input != "exit":
     )
     print(user_input.split(","))
 
-    # split takes individual entries and creats list.  "," takes comm separated list.  default is spaces converted to list
+    # previous code:for num_of_days_element in user_input.split(","):
+    # :- split takes individual entries and creats list.  "," takes comm separated list.  default is spaces converted to list
     for num_of_days_element in user_input.split(","):
         validate_and_execute()
