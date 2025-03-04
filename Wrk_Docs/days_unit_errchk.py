@@ -1,36 +1,34 @@
-def days_to_units(num_of_days, unit, custom_message):
-    if num_of_days > 0:
-        num_of_days
-    elif num_of_days == 0:
-        return "You entered 0, please enter a positive number"
-    else:
-        return "You entered a negative number of days, please enter a positive number"
-    if unit == "hours" or unit == "minutes" or unit == "seconds":
-        unit
-    else:
-        return "You entered an invalid unit, please enter a valid unit"
+from curses.ascii import isdigit
 
-    num_of_days = int(input("Enter a number of days: "))
-    unit = input("Enter the unit, eg. minutes, seconds, hours: ")
-
-    calc_to_hours = num_of_days * 24
-    calc_to_minutes = calc_to_hours * 60
-    calc_to_seconds = calc_to_minutes * 60
-
-    if unit == "hours":
-        return f"{num_of_days} days are {calc_to_hours} {unit} {custom_message}"
-    elif unit == "minutes":
-        return f"{num_of_days} days are {calc_to_minutes} {unit}  {custom_message}"
-    elif unit == "seconds":
-        return f"{num_of_days} days are {calc_to_seconds} {unit} {custom_message}"
-    else:
-        return "unit not recognized"
+# calculate days to hours static resource inputs
+calculation_to_units = 24
+name_of_unit = "hours"
 
 
-# need to put return here and not in body of function
-# need to return all variables for use in dys_units function
+# calculate
+def days_to_units(num_of_days):
+    return f"{num_of_days} days are {num_of_days* calculation_to_units} {name_of_unit}"
 
 
-dys_units = days_to_units(num_of_days, unit, "Awesome\n")
-print(dys_units)
-print(days_to_units(num_of_days, unit, "Great Stuff!"))
+def validate_and_execute():
+    try:
+
+        user_input_number = int(user_input)
+        if user_input_number > 0:
+            calculated_value = days_to_units(user_input_number)
+            print(calculated_value)
+        elif user_input_number == 0:
+            print("You entered 0, please enter a valid positive number")
+        else:
+            print("you netered a negarive number, no conversion for you")
+
+    except ValueError:
+        print("your input is not a valid number,  Don't ruin my program")
+
+
+while True:
+    user_input = input(
+        "Hey user, enter a number of days and i will convert it to hours\n"
+    )
+
+    validate_and_execute()

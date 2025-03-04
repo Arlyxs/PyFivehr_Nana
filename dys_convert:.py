@@ -1,3 +1,4 @@
+from curses.ascii import isdigit
 import sys
 
 
