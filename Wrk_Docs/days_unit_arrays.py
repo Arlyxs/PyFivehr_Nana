@@ -34,8 +34,9 @@ list = [10, 15, 40, 100]
 user_input = ""
 while user_input != "exit":
     user_input = input(
-        "Hey user, enter a number of days and i will convert it to hours\n"
+        "Hey user, enter a number of days as a comma separated list and i will convert it to hours\n"
     )
+    print(user_input.split(","))
 
     # split takes individual entries and creats list.  "," takes comm separated list.  default is spaces converted to list
     for num_of_days_element in user_input.split(","):
