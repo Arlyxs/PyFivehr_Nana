@@ -5,12 +5,8 @@
 calculation_to_units = 24
 name_of_unit = "hours"
 
-# SETS don't contain duplicates
-# TEST
-"""user input is a list with DuplicateSectionError  
-"""
 
-
+# verify user input and send to dys_to_units for calculation
 def validate_and_execute():
     try:
         # :- ensures that user enters a positive integer
@@ -28,9 +24,9 @@ def validate_and_execute():
         print("your input is not a valid number,  Don't ruin my program")
 
 
-# :- calculate
+# :- calculate dys to units and return result
 def days_to_units(num_of_days):
-    return f"{num_of_days} days are {num_of_days* calculation_to_units} {name_of_unit}"
+    return f"{num_of_days} days are {num_of_days * calculation_to_units} {name_of_unit}"
 
 
 user_input = ""
