@@ -31,7 +31,7 @@ def dys_convert(num_of_days, unit):
         except ValueError:
             print("exception error: invalid input type. please enter a valid number")
             i += 1
-
+    # while unit != "exit": (allow user input to exit program)
     n = 0
     while n < 5:
         if n == 4:
