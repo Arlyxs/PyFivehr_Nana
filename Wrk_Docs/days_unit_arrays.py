@@ -1,17 +1,10 @@
-from curses.ascii import isdigit
-
-# :- calculate days to hours static resource inputs
-calculation_to_units = 24
-name_of_unit = "hours"
-
-
-# :- calculate
-def days_to_units(num_of_days):
-    return f"{num_of_days} days are {num_of_days* calculation_to_units} {name_of_unit}"
+# multiple line comments""" e.g.
+"""" use content e"""
 
 
 def validate_and_execute():
     try:
+        # :- ensures that user enters a positive integer
         # previous code: user_input_number = int(num_of_days)
         user_input_number = int(num_of_days_element)
         if user_input_number > 0:
@@ -26,19 +19,33 @@ def validate_and_execute():
         print("your input is not a valid number,  Don't ruin my program")
 
 
-# :- list for entering multiple tries
-list = [10, 15, 40, 100]
+# :- calculate days to hours static resource inputs
+calculation_to_units = 24
+name_of_unit = "hours"
 
-# user_input = ""
-# while True:
+
+# sets don't contain duplicates
+# :- calculate
+def days_to_units(num_of_days):
+    return f"{num_of_days} days are {num_of_days* calculation_to_units} {name_of_unit}"
+
+
+# gets user data input (lists and converts to set)
 user_input = ""
 while user_input != "exit":
     user_input = input(
         "Hey user, enter a number of days as a comma separated list and i will convert it to hours\n"
     )
-    print(user_input.split(","))
+    # previous code: print(user_input.split(","))
+    list_of_days = user_input.split(", ")
+    print(list_of_days)
+    print(set(list_of_days))
+
+    print(type(list_of_days))
+    print(type(set(list_of_days)))
 
     # previous code:for num_of_days_element in user_input.split(","):
     # :- split takes individual entries and creats list.  "," takes comm separated list.  default is spaces converted to list
-    for num_of_days_element in user_input.split(","):
+    # previous code: for num_of_days_element in user_input.split(","):
+    for num_of_days_element in set(list_of_days):
         validate_and_execute()
