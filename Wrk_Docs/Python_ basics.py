@@ -108,3 +108,8 @@ print(thisList)
 # a module contains functions or variables that you can use in another python file.
 # you can reference one module from another - can structure program using modules
 # called making the program modular
+
+# import <module name> : imports the modules functions and variable to the target need <module name>.function or variable
+# import * :  imports everything (all)from the module to the target no <name>.funciton or variable required
+# items in module referred to as definiiton.  so import definitions from another file to a target
+# can create an alias for modules when doing an import reference import <mod_name> as <new name

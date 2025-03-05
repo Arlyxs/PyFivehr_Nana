@@ -1,5 +1,5 @@
 # verify user input and send to dys_to_units for calculation
-def validate_and_execute():
+def validate_and_execute(days_and_unit_dictionary):
     try:
         # :- ensures that user enters a positive integer
         user_input_number = int(days_and_unit_dictionary["days"])
@@ -15,6 +15,9 @@ def validate_and_execute():
 
     except ValueError:
         print("your input is not a valid number,  Don't ruin my program")
+
+
+user_input_message = "Hey user, enter a number of days and conversion unit!\n"
 
 
 # :- calculate dys to units and return result
