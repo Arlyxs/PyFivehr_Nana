@@ -103,3 +103,8 @@ print(thisList)
 # When choosing a collection type, it is useful to understand the properties of that type.
 # Choosing the right type for a particular data set could mean retention of meaning,
 # and, it could mean an increase in efficiency or security.
+
+# MODULES
+# a module contains functions or variables that you can use in another python file.
+# you can reference one module from another - can structure program using modules
+# called making the program modular
