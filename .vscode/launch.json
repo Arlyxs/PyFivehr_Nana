@@ -10,7 +10,7 @@
       "request": "launch",
       "program": "${file}",
       "console": "integratedTerminal",
-      "cwd": "${/home/lyxc/Documents/8_IT_Development/2_CodingLessons/BackEnd/Python/Projects/UTube/TechWorld/PyFivehr_Nana/Final_Projects/InventoryProject}",
+      "cwd": "${workspaceFolder}",
     },
     
   
