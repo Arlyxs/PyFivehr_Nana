@@ -113,3 +113,17 @@ print(thisList)
 # import * :  imports everything (all)from the module to the target no <name>.funciton or variable required
 # items in module referred to as definiiton.  so import definitions from another file to a target
 # can create an alias for modules when doing an import reference import <mod_name> as <new name
+# omport <module> <definition> so if only definition used then from <module name> import <definition>
+
+# THIRD PARTY MODULES
+# online search for *** pypi.org *** Python package index : listing of packages and modules appears.
+# a module is a python file; a package is a collection of modules
+# package has __init__ file to distinguish it from a normal python
+# can publish your own modules or packages
+
+# WEB DEVELOPMENT numpy, Django
+# packages can be installed in python using *** pip*** package manager python install/remove package
+# alibrary is a collection of packages for python
+
+# import openpyxl for ms excel fils
+# import pyexcel_ods for open document file
