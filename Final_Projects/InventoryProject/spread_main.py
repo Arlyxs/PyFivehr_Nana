@@ -21,3 +21,29 @@ for product_row in range(2, product_list.max_row):  # last row excluded
         products_per_supplier[supplier_name] = 1
 
 print(products_per_supplier)
+
+# calculation of total value  of inventory per supplier dict supplier:ttl_prod_val
+ttl_val_per_supplier = {}
+
+for product_row in range(2, product_list.max_row):
+
+    inventory = product_list.cell(product_row, 2).value
+    price = product_list.cell(product_row, 3).value
+
+    print(inventory)
+    print(price)
+    print(product_row)
+
+    supplier_name = product_list.cell(product_row, 4).value
+
+    if supplier_name in ttl_val_per_supplier:
+        current_product_value_supplier = ttl_val_per_supplier[supplier_name]
+        ttl_val_per_supplier[supplier_name] = (
+            current_product_value_supplier + product_list.cell(product_row, 5).value
+        )
+    else:
+        ttl_val_per_supplier[supplier_name] = inventory * price
+        print("no value founmd)")
+
+
+print(ttl_val_per_supplier)
