@@ -36,7 +36,7 @@ for product_row in range(2, product_list.max_row):  # from first to last(incl)
     price = product_list.cell(product_row, 3).value
 
     supplier_name = product_list.cell(product_row, 4).value
-    supp_row_val = inventory * price
+
     supp_row_val = product_list.cell(product_row, 5).value
 
     print(product_list.max_row)
@@ -51,3 +51,78 @@ for product_row in range(2, product_list.max_row):  # from first to last(incl)
         print(f"adding a new supplier {supplier_name} ")
 
 print(ttl_val_per_supplier)
+
+
+import openpyxl
+
+
+def multiply_cells(cell1, cell2):
+    if cell1.value is not None and cell2.value is not None:
+        if isinstance(cell1.value, (int, float)) and isinstance(
+            cell2.value, (int, float)
+        ):
+            return cell1.value * cell2.value
+        else:
+            return "Non-numeric values"  # Or handle as needed
+    else:
+        return "One or more cells are empty"
+
+
+workbook = openpyxl.load_workbook("your_excel_file.xlsx")
+sheet = workbook.active
+cell_a1 = sheet["A1"]
+cell_b1 = sheet["B1"]
+
+result = multiply_cells(cell_a1, cell_b1)
+print(result)
+
+workbook.close()
+# *********************************************************************
+
+import openpyxl
+
+
+def multiply_cells_convert(cell1, cell2):
+    if cell1.value is not None and cell2.value is not None:
+        try:
+            value1 = float(cell1.value)
+            value2 = float(cell2.value)
+            return value1 * value2
+        except ValueError:
+            return "Cannot convert to number"
+    else:
+        return "One or more cells are empty"
+
+
+workbook = openpyxl.load_workbook("your_excel_file.xlsx")
+sheet = workbook.active
+cell_a1 = sheet["A1"]
+cell_b1 = sheet["B1"]
+
+result = multiply_cells_convert(cell_a1, cell_b1)
+print(result)
+
+workbook.close()
+
+# **********************************************************************
+
+import openpyxl
+
+workbook = openpyxl.load_workbook("your_excel_file.xlsx")
+sheet = workbook.active
+
+cell_a1 = sheet["A1"]
+cell_b1 = sheet["B1"]
+
+if (
+    cell_a1.value is not None
+    and isinstance(cell_a1.value, (int, float))
+    and cell_b1.value is not None
+    and isinstance(cell_b1.value, (int, float))
+):
+    result = cell_a1.value * cell_b1.value
+    print(result)
+else:
+    print("One or both cells are not numbers or are empty.")
+
+workbook.close()
