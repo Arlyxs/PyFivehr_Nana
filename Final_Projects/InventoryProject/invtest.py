@@ -24,8 +24,8 @@ for product_row in range(2, product_list.max_row):  # last row excluded
         products_per_supplier[supplier_name] = 1
 
 print(products_per_supplier)
-
-
+# Working
+# ****************************************************************
 # calculation of total value  of inventory per supplier dict supplier:ttl_prod_val
 ttl_val_per_supplier = {}
 
@@ -48,7 +48,7 @@ for product_row in range(2, product_list.max_row):  # from first to last(incl)
         print(f"adding new supplier: {supplier_name} ")
 
 print(ttl_val_per_supplier)
-
+# working avoids cell multiplication
 # **********************************************************************
 
 ttl_val_per_supplier = {}
@@ -72,5 +72,5 @@ for product_row in range(2, product_list.max_row):  # from first to last(incl)
         print(f"adding new supplier: {supplier_name} ")
 
 print(ttl_val_per_supplier)
-
+# Working with cell multiplication
 # *******************************************************************
