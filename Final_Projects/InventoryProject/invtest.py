@@ -18,7 +18,7 @@ for product_row in range(2, product_list.max_row):  # last row excluded
     supplier_name = product_list.cell(product_row, 4).value
     inventory = product_list.cell(product_row, 2).value
     price = product_list.cell(product_row, 3).value
-    supplier_row_val = inventory * price
+    supplier_row_val = inventory * price  # type: ignore
     # supplier_row_val = product_list.cell(product_row, 5).value
     product_num = product_list.cell(product_row, 1).value
 
@@ -38,7 +38,7 @@ for product_row in range(2, product_list.max_row):  # last row excluded
         ttl_val_per_supplier[supplier_name] = supplier_row_val
         print(f"adding new ttl_val_supplier: {supplier_name} ")
 
-    if inventory < 10:
+    if inventory < 10:  # type: ignore
         products_under_10_inv[product_num] = inventory
 
 # :- eureka print instructions
@@ -49,6 +49,6 @@ print("Working: with cell multiplication")
 print(
     f"The products with inventory less than ten are\n Product number: Quantity {products_under_10_inv}"
 )
-inv_file.save("inventory_with_total_value.xlsx")
+# inv_file.save("inventory_with_total_value.xlsx")
 print("file successfully saved")
 # ****************************************************************
