@@ -6,7 +6,7 @@ inv_file = openpyxl.load_workbook(
     data_only=True,
 )
 product_list = inv_file["Sheet1"]
-"""
+
 # :- number of products per supplier
 # :- (using dictionary key value pairs suppleir:product)
 products_per_supplier = {}
@@ -23,12 +23,13 @@ for product_row in range(2, product_list.max_row):  # last row excluded
         # print("adding a new supplier")
         products_per_supplier[supplier_name] = 1
 
-print(products_per_supplier) """
+print(products_per_supplier)
+
 
 # calculation of total value  of inventory per supplier dict supplier:ttl_prod_val
 ttl_val_per_supplier = {}
 
-for product_row in range(7, product_list.max_row):  # from first to last(incl)
+for product_row in range(2, product_list.max_row):  # from first to last(incl)
 
     inventory = product_list.cell(product_row, 2).value
     price = product_list.cell(product_row, 3).value
