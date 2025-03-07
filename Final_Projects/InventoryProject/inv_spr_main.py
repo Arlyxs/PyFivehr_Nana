@@ -10,6 +10,7 @@ product_list = inv_file["Sheet1"]
 # :- calculates products per supplier
 # :- calculation of total value  of inventory per supplier
 # :- products with inventory less than 10
+# :- add column to calculate inventory by price .
 products_per_supplier = {}
 ttl_val_per_supplier = {}
 products_under_10_inv = {}
@@ -21,6 +22,7 @@ for product_row in range(2, product_list.max_row):  # last row excluded
     supplier_row_val = inventory * price
     # supplier_row_val = product_list.cell(product_row, 5).value
     product_num = product_list.cell(product_row, 1).value
+    inventory_price = product_list.cell(product_row, 6)
 
     if supplier_name in products_per_supplier:
         current_num_products = products_per_supplier[supplier_name]
@@ -41,6 +43,7 @@ for product_row in range(2, product_list.max_row):  # last row excluded
     if inventory < 10:
         products_under_10_inv[product_num] = inventory
 
+    inventory_price.value = inventory * price
 # :- eureka print instructions
 print(products_per_supplier)
 print("Working: dictionary written_(npi)")
@@ -49,4 +52,6 @@ print("Working: with cell multiplication")
 print(
     f"The products with inventory less than ten are\n Product number: Quantity {products_under_10_inv}"
 )
+inv_file.save("inventory_with_total_value.xlsx")
+print("file successfully saved")
 # ****************************************************************
