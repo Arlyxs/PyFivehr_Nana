@@ -1,72 +1,52 @@
+from multiprocessing import Value
 import openpyxl
 
-# :- calculation of total value  of inventory per supplier dict supplier:ttl_prod_val
+# :- inventory per supplier | dict supplier:ttl_prod_val
 inv_file = openpyxl.load_workbook(
     "/home/lyxc/Documents/8_IT_Development/2_CodingLessons/BackEnd/Python/Projects/UTube/TechWorld/PyFivehr_Nana/Final_Projects/InventoryProject/inventory.xlsx",
     data_only=True,
 )
 product_list = inv_file["Sheet1"]
-
-# :- number of products per supplier
-# :- (using dictionary key value pairs suppleir:product)
+# :- calculates products per supplier
+# :- calculation of total value  of inventory per supplier
+# :- products with inventory less than 10
 products_per_supplier = {}
-
-print(product_list.max_row)
+ttl_val_per_supplier = {}
+products_under_10_inv = {}
 
 for product_row in range(2, product_list.max_row):  # last row excluded
     supplier_name = product_list.cell(product_row, 4).value
+    inventory = product_list.cell(product_row, 2).value
+    price = product_list.cell(product_row, 3).value
+    supplier_row_val = inventory * price
+    # supplier_row_val = product_list.cell(product_row, 5).value
+    product_num = product_list.cell(product_row, 1).value
 
     if supplier_name in products_per_supplier:
         current_num_products = products_per_supplier[supplier_name]
         products_per_supplier[supplier_name] = current_num_products + 1
     else:
-        # print("adding a new supplier")
+        print("adding a new: prod_supplier")
         products_per_supplier[supplier_name] = 1
-
-print(products_per_supplier)
-print("Working: dictionary written_(npi)")
-# ****************************************************************
-# calculation of total value  of inventory per supplier dict supplier:ttl_prod_val
-ttl_val_per_supplier = {}
-
-for product_row in range(2, product_list.max_row):  # from first to last(incl)
-
-    inventory = product_list.cell(product_row, 2).value
-    price = product_list.cell(product_row, 3).value
-
-    supplier_name = product_list.cell(product_row, 4).value
-    # supp_row_val = inventory * price
-    supp_row_val = product_list.cell(product_row, 5).value
 
     if supplier_name in ttl_val_per_supplier:
         current_product_value_supplier = ttl_val_per_supplier[supplier_name]
         ttl_val_per_supplier[supplier_name] = (
-            current_product_value_supplier + supp_row_val
+            current_product_value_supplier + supplier_row_val
         )
     else:
-        ttl_val_per_supplier[supplier_name] = supp_row_val
-        print(f"adding new supplier: {supplier_name} ")
+        ttl_val_per_supplier[supplier_name] = supplier_row_val
+        print(f"adding new ttl_val_supplier: {supplier_name} ")
 
-print(ttl_val_per_supplier)
-print("working: avoids cell multiplication")
-# **********************************************************************
+    if inventory < 10:
+        products_under_10_inv[product_num] = inventory
 
-ttl_val_per_supplier = {}
-
-for product_row in range(2, product_list.max_row):  # from first to last(incl)
-    supplier_name = product_list.cell(product_row, 4).value
-    inventory = product_list.cell(product_row, 2).value
-    price = product_list.cell(product_row, 3).value
-    supp_row_val = inventory * price
-    # supp_row_val = product_list.cell(product_row, 5).value
-
-    if supplier_name in ttl_val_per_supplier:
-        curr_prod_val_supplier = ttl_val_per_supplier[supplier_name]
-        ttl_val_per_supplier[supplier_name] = curr_prod_val_supplier + supp_row_val
-    else:
-        ttl_val_per_supplier[supplier_name] = supp_row_val
-        print(f"adding new supplier: {supplier_name} ")
-
+# :- eureka print instructions
+print(products_per_supplier)
+print("Working: dictionary written_(npi)")
 print(ttl_val_per_supplier)
 print("Working: with cell multiplication")
-# *******************************************************************
+print(
+    f"The products with inventory less than ten are\n Product number: Quantity {products_under_10_inv}"
+)
+# ****************************************************************
