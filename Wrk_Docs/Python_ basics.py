@@ -137,3 +137,6 @@ print(thisList)
 # is used to access variables that belong to the class
 
 # functions that belong to an object are called methods
+
+# Almost everything in Python is an object
+# str(), int(), ... are the constructor function built into Python
