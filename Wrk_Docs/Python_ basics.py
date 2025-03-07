@@ -127,3 +127,13 @@ print(thisList)
 
 # import openpyxl for ms excel fils
 # import pyexcel_ods for open document file
+# OBJECT ORIENTED PROGRAMMING
+# CLASSES
+# class is an object constructor
+# all classes have __init__() function
+# __init--() is exectued automatically, whenever we creat the
+# objects from this class
+# self parameter is a reference to the current instance of the class
+# is used to access variables that belong to the class
+
+# functions that belong to an object are called methods
