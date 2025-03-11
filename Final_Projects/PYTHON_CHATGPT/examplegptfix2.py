@@ -1,3 +1,4 @@
+import os
 from openai import OpenAI
 
 # Initialize the client with your API key
